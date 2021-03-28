@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     # installed apps
     'members.apps.MembersConfig',
     'students.apps.StudentsConfig',
+    'teachers.apps.TeachersConfig',
 ]
 
 MIDDLEWARE = [

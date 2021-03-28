@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include 'partials/_header.html' %}
+    <br>
+    <ul class="list-group">
+        <li class="list-group-item active" aria-current="true">All Members: </li>
+        {% for member in members %}
+            <li class="list-group-item">{{ member.username }}</li>
+        {% endfor %}
+</ul>
+
+{% endblock %}
