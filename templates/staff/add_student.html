@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <form action="{% url 'add_student' %}" method="POST">
+    {% csrf_token %}
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username">
+        </div>
+
+        <div class="mb-3">
+            <label for="firstname" class="form-label">Firstname</label>
+            <input type="text" class="form-control" id="firstname" name="firstname">
+        </div>
+
+        <div class="mb-3">
+            <label for="lastname" class="form-label">Lastname</label>
+            <input type="text" class="form-control" id="lastname"
+                   aria-describedby="lastnameHelp">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email
+                address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1"
+                   aria-describedby="emailHelp">
+        </div>
+
+        <div class="mb-3">
+            <label for="national_code" class="form-label">National Code</label>
+            <input type="number" class="form-control" id="national_code">
+        </div>
+
+        <div class="mb-3">
+            <label for="student_code" class="form-label">Student Code</label>
+            <input type="number" class="form-control" id="student_code">
+        </div>
+
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Select Status</option>
+            {% for val, status in  student.STATUS_CHOICES %}
+                <option value="{{ val }}">{{ status }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>select Grade</option>
+            {% for val, grade in  student.GRADES_CHOICES %}
+                <option value="{{ val }}">{{ grade }}</option>
+            {% endfor %}
+        </select>
+
+        <div class="mb-3">
+            <label for="exampleInputPassword1"
+                   class="form-label">Password</label>
+            <input type="password" class="form-control"
+                   id="exampleInputPassword1">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me
+                out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+{% endblock %}
